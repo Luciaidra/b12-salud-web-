@@ -53,11 +53,6 @@
 
     /* Tarjetas filtradas */
     .spec-card.is-hidden { display: none; }
-
-    /* Estado de error en el formulario */
-    .field-error input, .field-error select, .field-error textarea { border-color: #b4533c; background-color: #fdf5f2; }
-    .field-error .error-msg { display: block; }
-    .error-msg { display: none; }
   </style>
 </head>
 
@@ -341,7 +336,7 @@
         <div class="reveal mx-auto max-w-2xl text-center">
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">Turnos y Contacto</p>
           <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">Reservá tu turno</h2>
-          <p class="mt-4 text-sage-800/75">Dejanos tus datos y te contactamos para coordinar día y horario. Contamos con cobertura de obras sociales.</p>
+          <p class="mt-4 text-sage-800/75">Escribinos por WhatsApp y coordinamos día y horario. Contamos con cobertura de obras sociales.</p>
         </div>
 
         <div class="mt-14 grid gap-8 lg:grid-cols-5">
@@ -375,8 +370,7 @@
                 <h3 class="font-semibold text-sage-900">Horarios de atención</h3>
                 <dl class="mt-1 space-y-1 text-sm text-sage-800/75">
                   <div class="flex justify-between gap-4"><dt>Lunes a viernes</dt><dd class="font-medium text-sage-900">8:00 – 20:00</dd></div>
-                  <div class="flex justify-between gap-4"><dt>Sábados</dt><dd class="font-medium text-sage-900">9:00 – 13:00</dd></div>
-                  <div class="flex justify-between gap-4"><dt>Domingos y feriados</dt><dd>Cerrado</dd></div>
+                  <div class="flex justify-between gap-4"><dt>Sábados y domingos</dt><dd>Cerrado</dd></div>
                 </dl>
               </div>
             </div>
@@ -386,55 +380,26 @@
             </div>
           </aside>
 
-          <!-- Formulario -->
+          <!-- Reserva por WhatsApp -->
           <div class="reveal lg:col-span-3">
-            <form id="contact-form" class="rounded-3xl bg-white p-6 shadow-soft sm:p-10" novalidate>
-              <div class="grid gap-5 sm:grid-cols-2">
-                <div class="field">
-                  <label for="nombre" class="mb-1.5 block text-sm font-medium text-sage-900">Nombre y apellido *</label>
-                  <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej: María Pérez"
-                    class="w-full rounded-xl border border-sage-200 bg-cream px-4 py-3 text-sm outline-none transition focus:border-sage-500 focus:ring-2 focus:ring-sage-200" />
-                  <p class="error-msg mt-1 text-xs text-[#b4533c]">Ingresá tu nombre (mínimo 3 caracteres).</p>
-                </div>
-                <div class="field">
-                  <label for="telefono" class="mb-1.5 block text-sm font-medium text-sage-900">Teléfono *</label>
-                  <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ej: 11 2345 6789"
-                    class="w-full rounded-xl border border-sage-200 bg-cream px-4 py-3 text-sm outline-none transition focus:border-sage-500 focus:ring-2 focus:ring-sage-200" />
-                  <p class="error-msg mt-1 text-xs text-[#b4533c]">Ingresá un teléfono válido (8 a 15 dígitos).</p>
-                </div>
-                <div class="field sm:col-span-2">
-                  <label for="especialidad" class="mb-1.5 block text-sm font-medium text-sage-900">Especialidad de interés *</label>
-                  <select id="especialidad" name="especialidad"
-                    class="w-full rounded-xl border border-sage-200 bg-cream px-4 py-3 text-sm outline-none transition focus:border-sage-500 focus:ring-2 focus:ring-sage-200">
-                    <option value="">Seleccioná una opción</option>
-                    <!-- Opciones generadas con JavaScript -->
-                  </select>
-                  <p class="error-msg mt-1 text-xs text-[#b4533c]">Elegí una especialidad.</p>
-                </div>
-                <div class="field sm:col-span-2">
-                  <label for="mensaje" class="mb-1.5 block text-sm font-medium text-sage-900">Mensaje</label>
-                  <textarea id="mensaje" name="mensaje" rows="4" placeholder="Contanos brevemente el motivo de consulta y tu disponibilidad horaria"
-                    class="w-full resize-none rounded-xl border border-sage-200 bg-cream px-4 py-3 text-sm outline-none transition focus:border-sage-500 focus:ring-2 focus:ring-sage-200"></textarea>
-                </div>
-              </div>
-
-              <button type="submit" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-sage-600 px-7 py-3.5 font-semibold text-white shadow-soft transition hover:bg-sage-700 disabled:opacity-60 sm:w-auto">
-                <span class="btn-label">Solicitar turno</span>
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-              </button>
-              <p class="mt-4 text-xs text-sage-700/70">Al enviar aceptás nuestra <a href="#" class="underline">política de privacidad</a>. Tus datos sólo se usan para coordinar tu turno.</p>
-            </form>
-
-            <!-- Mensaje de éxito -->
-            <div id="form-success" class="hidden rounded-3xl bg-white p-8 text-center shadow-soft sm:p-12" role="status" aria-live="polite">
-              <span class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-sage-100 text-sage-600">
-                <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <div class="rounded-3xl bg-white p-6 shadow-soft sm:p-10">
+              <span class="grid h-14 w-14 place-items-center rounded-2xl bg-[#25D366]/15 text-[#1a9e4b]">
+                <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
               </span>
-              <h3 class="mt-5 font-serif text-2xl font-semibold text-sage-900">¡Gracias, <span id="success-name"></span>!</h3>
-              <p class="mt-2 text-sage-800/75">Recibimos tu solicitud. Te contactaremos a la brevedad para confirmar tu turno.</p>
-              <div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-                <a id="success-wa" href="#" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-full bg-sage-600 px-6 py-3 text-sm font-semibold text-white hover:bg-sage-700">Continuar por WhatsApp</a>
-                <button id="form-reset" type="button" class="rounded-full border border-sage-300 px-6 py-3 text-sm font-semibold text-sage-800 hover:bg-sage-50">Enviar otra consulta</button>
+              <h3 class="mt-5 font-serif text-2xl font-semibold text-sage-900">Sacá tu turno por WhatsApp</h3>
+              <p class="mt-2 text-sage-800/75">Elegí la especialidad y se abre WhatsApp con el mensaje listo para enviar. Te respondemos para coordinar día y horario.</p>
+
+              <p class="mt-8 text-sm font-semibold text-sage-900">¿Qué especialidad buscás?</p>
+              <!-- Botones generados con JavaScript desde el array "especialidades" -->
+              <div id="wa-specs" class="mt-3 flex flex-wrap gap-2"></div>
+
+              <div class="mt-8 border-t border-sage-100 pt-8">
+                <a id="wa-general" href="https://wa.me/5492236962636" target="_blank" rel="noopener"
+                   class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 font-semibold text-white shadow-soft transition hover:bg-[#1fb857] sm:w-auto">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                  Escribinos al 223 696-2636
+                </a>
+                <p class="mt-3 text-xs text-sage-700/70">¿No sabés qué especialidad necesitás? Escribinos igual y te orientamos.</p>
               </div>
             </div>
           </div>
@@ -455,17 +420,11 @@
         </a>
         <p class="mt-4 text-sm text-sage-800/75">Centro de salud multidisciplinario. Acompañamos tu bienestar con un enfoque integral y humano.</p>
         <div class="mt-5 flex gap-2">
-          <a href="#" aria-label="Instagram" class="grid h-10 w-10 place-items-center rounded-full bg-white text-sage-700 transition hover:bg-sage-600 hover:text-white">
+          <a href="https://www.instagram.com/b12.salud" target="_blank" rel="noopener" aria-label="Instagram de B12 Salud" class="grid h-10 w-10 place-items-center rounded-full bg-white text-sage-700 transition hover:bg-sage-600 hover:text-white">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook" class="grid h-10 w-10 place-items-center rounded-full bg-white text-sage-700 transition hover:bg-sage-600 hover:text-white">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
           <a href="https://wa.me/5492236962636" target="_blank" rel="noopener" aria-label="WhatsApp" class="grid h-10 w-10 place-items-center rounded-full bg-white text-sage-700 transition hover:bg-sage-600 hover:text-white">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-          </a>
-          <a href="#" aria-label="LinkedIn" class="grid h-10 w-10 place-items-center rounded-full bg-white text-sage-700 transition hover:bg-sage-600 hover:text-white">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>
           </a>
         </div>
       </div>
@@ -491,7 +450,7 @@
           <li>Mario Bravo 3356, Mar del Plata</li>
           <li>223 696-2636</li>
           <li>Contamos con cobertura de obras sociales</li>
-          <li>Lun a Vie 8 – 20 h · Sáb 9 – 13 h</li>
+          <li>Lunes a viernes de 8 a 20 h</li>
         </ul>
       </div>
     </div>
@@ -517,7 +476,7 @@
 
   <script>
     // ===== Configuración rápida =====
-    const WHATSAPP_NUMERO = '5492236962636'; // Reemplazar por el número real (formato internacional sin "+")
+    const WHATSAPP_NUMERO = '5492236962636'; // WhatsApp del consultorio (formato internacional sin "+")
 
     // ===== Datos de especialidades =====
     const especialidades = [
@@ -539,9 +498,12 @@
         icon: '<path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/>' }
     ];
 
-    // ===== Render de tarjetas, opciones del select y footer =====
+    // Enlace de WhatsApp con el mensaje de turno ya escrito
+    const waLink = (especialidad) => `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(
+      `¡Hola! Quisiera solicitar un turno de ${especialidad}.`)}`;
+
+    // ===== Render de tarjetas, botones de turno y footer =====
     const grid = document.getElementById('spec-grid');
-    const select = document.getElementById('especialidad');
     const footerSpecs = document.getElementById('footer-specs');
 
     grid.innerHTML = especialidades.map(e => `
@@ -551,15 +513,16 @@
         </span>
         <h3 class="mt-5 font-serif text-lg font-semibold leading-snug text-sage-900">${e.nombre}</h3>
         <p class="mt-2 flex-1 text-sm leading-relaxed text-sage-800/75">${e.desc}</p>
-        <button type="button" class="book-btn mt-5 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-sage-600 hover:text-sage-800" data-spec="${e.id}">
-          Pedir turno
+        <a href="${waLink(e.nombre)}" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-sage-600 hover:text-sage-800">
+          Pedir turno por WhatsApp
           <svg class="h-4 w-4 transition group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
+        </a>
       </article>`).join('');
 
-    select.insertAdjacentHTML('beforeend',
-      especialidades.map(e => `<option value="${e.id}">${e.nombre}</option>`).join('') +
-      '<option value="no-se">No estoy seguro/a, necesito orientación</option>');
+    // Botones de especialidad en la sección de turnos
+    document.getElementById('wa-specs').innerHTML = especialidades.map(e => `
+      <a href="${waLink(e.nombre)}" target="_blank" rel="noopener"
+         class="rounded-full border border-sage-200 bg-cream px-4 py-2 text-sm font-medium text-sage-800 transition hover:border-sage-600 hover:bg-sage-600 hover:text-white">${e.nombre.split(' (')[0]}</a>`).join('');
 
     footerSpecs.innerHTML = especialidades
       .map(e => `<li><a href="#especialidades" class="hover:text-sage-600">${e.nombre.split(' (')[0]}</a></li>`).join('');
@@ -615,16 +578,6 @@
     }));
     styleFilters('all');
 
-    // ===== "Pedir turno" desde una tarjeta: preselecciona la especialidad =====
-    grid.addEventListener('click', e => {
-      const btn = e.target.closest('.book-btn');
-      if (!btn) return;
-      select.value = btn.dataset.spec;
-      select.closest('.field').classList.remove('field-error');
-      document.getElementById('contacto').scrollIntoView();
-      setTimeout(() => document.getElementById('nombre').focus({ preventScroll: true }), 600);
-    });
-
     // ===== Resaltado del enlace activo en el navbar =====
     const navLinks = document.querySelectorAll('.nav-link');
     const sectionObserver = new IntersectionObserver(entries => {
@@ -649,70 +602,6 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ===== Formulario: validación y mensaje de éxito =====
-    const form = document.getElementById('contact-form');
-    const success = document.getElementById('form-success');
-
-    const validators = {
-      nombre: v => v.trim().length >= 3,
-      telefono: v => { const d = v.replace(/\D/g, ''); return d.length >= 8 && d.length <= 15; },
-      especialidad: v => v !== ''
-    };
-
-    const validateField = (name) => {
-      const input = form.elements[name];
-      const ok = validators[name](input.value);
-      input.closest('.field').classList.toggle('field-error', !ok);
-      input.setAttribute('aria-invalid', String(!ok));
-      return ok;
-    };
-
-    // Revalida en vivo una vez que el campo tuvo error
-    Object.keys(validators).forEach(name => {
-      const input = form.elements[name];
-      const evt = input.tagName === 'SELECT' ? 'change' : 'input';
-      input.addEventListener(evt, () => {
-        if (input.closest('.field').classList.contains('field-error')) validateField(name);
-      });
-    });
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const results = Object.keys(validators).map(validateField);
-      if (results.includes(false)) {
-        const firstInvalid = form.querySelector('.field-error input, .field-error select');
-        if (firstInvalid) firstInvalid.focus();
-        return;
-      }
-
-      const btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.querySelector('.btn-label').textContent = 'Enviando…';
-
-      // Simulación de envío. Para enviar datos reales, conectar aquí un servicio
-      // como Formspree, EmailJS o un endpoint propio con fetch().
-      setTimeout(() => {
-        const data = Object.fromEntries(new FormData(form));
-        const espNombre = select.options[select.selectedIndex].text;
-        const texto = `Hola! Soy ${data.nombre.trim()}. Quisiera solicitar un turno de ${espNombre}.` +
-          (data.mensaje.trim() ? ` ${data.mensaje.trim()}` : '');
-
-        document.getElementById('success-name').textContent = data.nombre.trim().split(' ')[0];
-        document.getElementById('success-wa').href = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(texto)}`;
-
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
-        btn.disabled = false;
-        btn.querySelector('.btn-label').textContent = 'Solicitar turno';
-      }, 900);
-    });
-
-    document.getElementById('form-reset').addEventListener('click', () => {
-      form.reset();
-      success.classList.add('hidden');
-      form.classList.remove('hidden');
-      document.getElementById('nombre').focus();
-    });
   </script>
 </body>
 </html>

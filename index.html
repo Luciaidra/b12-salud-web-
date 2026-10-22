@@ -4,12 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B12 Salud Integral | Centro de salud multidisciplinario</title>
-  <meta name="description" content="Centro de salud integral multidisciplinario: Kinesiología, FKT, RPG, Osteopatía, ATM, Terapia Ocupacional, Nutrición y Psicopedagogía. Reservá tu turno." />
+  <meta name="description" content="Centro de salud integral multidisciplinario: Kinesiología, FKT, RPG, Osteopatía, ATM, y Terapia Ocupacional. Reservá tu turno." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%238f9677%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Georgia,serif%27 font-size=%2730%27 text-anchor=%27middle%27 fill=%27%23f3f0e6%27%3EB12%3C/text%3E%3C/svg%3E" />
 
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS vía CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,6 +24,7 @@
               50: '#f4f6f1', 100: '#e6ebdf', 200: '#cdd7c0', 300: '#aebd9b', 400: '#8fa178',
               500: '#74875d', 600: '#5b6b48', 700: '#48553a', 800: '#3b4531', 900: '#2b3223'
             },
+            brand: { olive: '#8f9677', dark: '#646b4f', light: '#f3f0e6' },
             cream: '#faf8f3',
             sand: '#efe9df',
             ink: '#2a2d26'
@@ -51,6 +54,15 @@
       .reveal { opacity: 1; transform: none; transition: none; }
     }
 
+    /* Logo B12: "B12" grande con "SALUD INTEGRAL" superpuesto, igual que el logo original */
+    .b12-logo { position: relative; display: inline-grid; place-items: center; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; line-height: 1; }
+    .b12-logo .b12-mark { display: block; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; color: #646b4f; letter-spacing: -0.03em; font-size: var(--logo-size, 2.5rem); }
+    .b12-logo .b12-sub { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); color: #f3f0e6; white-space: nowrap;
+                         font-size: calc(var(--logo-size, 2.5rem) * 0.155); letter-spacing: 0.03em; }
+
+    /* Leyendas del carrusel: sólo para lectores de pantalla */
+    .carousel-slide figcaption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
     /* Tarjetas filtradas */
     .spec-card.is-hidden { display: none; }
   </style>
@@ -62,15 +74,9 @@
   <header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
     <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8" aria-label="Navegación principal">
       <!-- Logo -->
-      <a href="#inicio" class="flex items-center gap-2.5" aria-label="B12 Salud Integral, ir al inicio">
-        <span class="grid h-10 w-10 place-items-center rounded-full bg-sage-600 text-white">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-          </svg>
-        </span>
-        <span class="leading-tight">
-          <span class="block font-serif text-lg font-semibold text-sage-900">B12</span>
-          <span class="block text-[11px] font-medium uppercase tracking-[0.18em] text-sage-600">Salud Integral</span>
+      <a href="#inicio" class="flex items-center" aria-label="B12 Salud Integral, ir al inicio">
+        <span class="inline-flex rounded-xl bg-brand-olive px-3 pb-1.5 pt-0.5 shadow-sm">
+          <span class="b12-logo" style="--logo-size: 3.1rem" aria-hidden="true"><span class="b12-mark">B12</span><span class="b12-sub">SALUD INTEGRAL</span></span>
         </span>
       </a>
 
@@ -124,7 +130,7 @@
             Cuidamos tu salud <em class="font-normal italic text-sage-600">de manera integral</em>
           </h1>
           <p class="mt-6 max-w-xl text-lg leading-relaxed text-sage-800/80">
-            Un equipo de profesionales que trabaja en conjunto para acompañarte en cada etapa: rehabilitación, postura, desarrollo, aprendizaje y alimentación, con una mirada humana y personalizada.
+            Un equipo de profesionales que trabaja en conjunto para acompañarte en cada etapa: rehabilitación, postura, movimiento y bienestar, con una mirada humana y personalizada.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="#contacto" class="inline-flex items-center justify-center gap-2 rounded-full bg-sage-600 px-7 py-3.5 font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-sage-700">
@@ -137,34 +143,17 @@
           </div>
 
           <dl class="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-sage-200 pt-8">
-            <div><dt class="text-xs text-sage-700/80">Especialidades</dt><dd class="font-serif text-3xl font-semibold text-sage-900">8</dd></div>
-            <div><dt class="text-xs text-sage-700/80">Profesionales</dt><dd class="font-serif text-3xl font-semibold text-sage-900">6</dd></div>
+            <div><dt class="text-xs text-sage-700/80">Especialidades</dt><dd class="font-serif text-3xl font-semibold text-sage-900">6</dd></div>
+            <div><dt class="text-xs text-sage-700/80">Profesionales</dt><dd class="font-serif text-3xl font-semibold text-sage-900">5</dd></div>
             <div><dt class="text-xs text-sage-700/80">Enfoque</dt><dd class="font-serif text-3xl font-semibold text-sage-900">360°</dd></div>
           </dl>
         </div>
 
-        <!-- Ilustración -->
+        <!-- Foto de la fachada -->
         <div class="reveal relative mx-auto w-full max-w-lg">
-          <div class="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-sage-200 via-sage-100 to-sand shadow-soft">
-            <svg class="absolute inset-0 h-full w-full" viewBox="0 0 400 500" fill="none" aria-hidden="true">
-              <circle cx="300" cy="110" r="70" fill="#f4f6f1" opacity=".7"/>
-              <path d="M0 360 C 90 300, 180 400, 260 340 S 400 300, 400 300 V500 H0Z" fill="#aebd9b" opacity=".55"/>
-              <path d="M0 410 C 120 360, 220 450, 400 380 V500 H0Z" fill="#74875d" opacity=".55"/>
-              <!-- Figura estilizada en postura de estiramiento -->
-              <g stroke="#3b4531" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="200" cy="140" r="26" fill="#faf8f3"/>
-                <path d="M200 170 L200 270"/>
-                <path d="M200 195 L140 140"/>
-                <path d="M200 195 L262 140"/>
-                <path d="M200 270 L160 350"/>
-                <path d="M200 270 L240 350"/>
-              </g>
-              <!-- Hojas -->
-              <g fill="#5b6b48">
-                <path d="M70 250 C 50 210, 80 180, 110 175 C 110 210, 95 240, 70 250Z" opacity=".8"/>
-                <path d="M330 240 C 350 205, 325 175, 295 170 C 293 205, 305 232, 330 240Z" opacity=".8"/>
-              </g>
-            </svg>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-sage-100 shadow-soft">
+            <img src="img/fachada.jpg" alt="Fachada de B12 Salud Integral en Mario Bravo 3356, Mar del Plata" width="960" height="1280"
+                 class="h-full w-full object-cover" fetchpriority="high" />
           </div>
           <!-- Tarjeta flotante -->
           <div class="absolute -bottom-6 -left-2 flex items-center gap-3 rounded-2xl bg-white p-4 shadow-soft sm:-left-8">
@@ -186,7 +175,7 @@
         <div class="reveal mx-auto max-w-2xl text-center">
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">Especialidades</p>
           <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">Todo lo que necesitás, en un mismo lugar</h2>
-          <p class="mt-4 text-sage-800/75">Ocho disciplinas que se complementan para abordar cada caso desde distintas miradas.</p>
+          <p class="mt-4 text-sage-800/75">Seis disciplinas que se complementan para abordar cada caso desde distintas miradas.</p>
         </div>
 
         <!-- Filtros -->
@@ -194,7 +183,7 @@
           <button type="button" class="filter-btn rounded-full border px-5 py-2 text-sm font-medium transition" data-filter="all" aria-pressed="true">Todas</button>
           <button type="button" class="filter-btn rounded-full border px-5 py-2 text-sm font-medium transition" data-filter="rehab" aria-pressed="false">Rehabilitación</button>
           <button type="button" class="filter-btn rounded-full border px-5 py-2 text-sm font-medium transition" data-filter="manual" aria-pressed="false">Terapias manuales</button>
-          <button type="button" class="filter-btn rounded-full border px-5 py-2 text-sm font-medium transition" data-filter="desarrollo" aria-pressed="false">Desarrollo y bienestar</button>
+          <button type="button" class="filter-btn rounded-full border px-5 py-2 text-sm font-medium transition" data-filter="desarrollo" aria-pressed="false">Terapia ocupacional</button>
         </div>
 
         <!-- Grid de tarjetas (se completa con JavaScript desde el array "especialidades") -->
@@ -205,22 +194,39 @@
     <!-- ===================== SOBRE NOSOTROS ===================== -->
     <section id="nosotros" class="py-20 lg:py-28">
       <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
+        <!-- Carrusel de fotos del consultorio -->
         <div class="reveal order-2 lg:order-1">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="space-y-4">
-              <div class="rounded-3xl bg-sage-600 p-6 text-white">
-                <p class="font-serif text-4xl font-semibold">1</p>
-                <p class="mt-2 text-sm text-sage-100">historia clínica compartida entre todo el equipo</p>
+          <div id="carousel" class="relative mx-auto w-full max-w-xl" role="region" aria-roledescription="carrusel" aria-label="Fotos del consultorio" tabindex="0">
+            <div class="relative aspect-square overflow-hidden rounded-3xl bg-sage-100 shadow-soft">
+              <!-- Para agregar o cambiar fotos: copiar un bloque <figure> y cambiar src, alt y el texto del figcaption -->
+              <div id="carousel-track" class="flex h-full transition-transform duration-500 ease-out">
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/recepcion.jpg" alt="Recepción de B12 con estantes iluminados y plantas" width="960" height="1280" class="h-full w-full object-cover" /><figcaption>Recepción</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/sala-espera.jpg" alt="Sala de espera con sillones y sillas verdes" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Sala de espera</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/consultorio-camilla.jpg" alt="Consultorio con camilla articulada de terapia manual" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Consultorio de terapia manual</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/gimnasio.jpg" alt="Gimnasio de rehabilitación con bicicletas y espaldar" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Gimnasio de rehabilitación</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/boxes.jpg" alt="Boxes de tratamiento con cortinas verdes y camillas" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Boxes de tratamiento</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/gimnasio-pesas.jpg" alt="Área de fortalecimiento con mancuernas y bicicletas" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Área de fortalecimiento</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/espaldar.jpg" alt="Espacio de ejercicio terapéutico con espaldar, pelota y minitramp" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Ejercicio terapéutico</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/consultorio-calido.jpg" alt="Consultorio con luz cálida, camilla y escritorio" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Consultorio</figcaption></figure>
               </div>
-              <div class="aspect-square rounded-3xl bg-gradient-to-br from-sand to-sage-200"></div>
-            </div>
-            <div class="space-y-4 pt-10">
-              <div class="aspect-square rounded-3xl bg-gradient-to-tr from-sage-200 to-sage-100"></div>
-              <div class="rounded-3xl bg-white p-6 shadow-soft">
-                <p class="font-serif text-4xl font-semibold text-sage-900">100%</p>
-                <p class="mt-2 text-sm text-sage-700/80">planes de tratamiento personalizados</p>
+
+              <!-- Leyenda y contador -->
+              <div class="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-black/60 to-transparent px-5 pb-4 pt-16 text-white">
+                <p id="carousel-caption" class="text-sm font-medium" aria-live="polite"></p>
+                <p id="carousel-count" class="shrink-0 text-xs text-white/80"></p>
               </div>
+
+              <!-- Flechas -->
+              <button type="button" id="carousel-prev" class="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/85 text-sage-900 shadow-soft transition hover:bg-white" aria-label="Foto anterior">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button type="button" id="carousel-next" class="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/85 text-sage-900 shadow-soft transition hover:bg-white" aria-label="Foto siguiente">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
             </div>
+
+            <!-- Puntos -->
+            <div id="carousel-dots" class="mt-4 flex justify-center gap-2"></div>
           </div>
         </div>
 
@@ -266,7 +272,7 @@
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-300">Profesionales</p>
             <h2 class="mt-3 font-serif text-3xl font-semibold sm:text-4xl">Un equipo que trabaja junto a vos</h2>
             <p class="mt-4 text-sage-100/80">
-              Kinesiólogos, osteópatas, terapeuta ocupacional y psicopedagoga comparten un mismo espacio y se comunican entre sí, para que cada tratamiento se piense en equipo.
+              Kinesiólogos, osteópatas y terapeuta ocupacional comparten un mismo espacio y se comunican entre sí, para que cada tratamiento se piense en equipo.
             </p>
           </div>
           <a href="#contacto" class="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-white px-6 py-3 text-sm font-semibold text-sage-900 transition hover:bg-sage-100 lg:self-auto">
@@ -279,19 +285,19 @@
         <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
-              <div class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-sage-300 font-serif text-lg font-semibold text-sage-900">IB</div>
-              <div><h3 class="font-semibold">Lic. Iñaki Baviello</h3><p class="text-sm text-sage-300">Kinesiología (FKT)</p></div>
-            </div>
-            <p class="mt-4 flex-1 text-sm text-sage-100/70">Evaluación, rehabilitación y fortalecimiento. Prevención y tratamiento de lesiones.</p>
-            <ul class="mt-4 flex flex-wrap gap-1.5 text-xs"><li class="rounded-full bg-white/10 px-2.5 py-1">Kinesiología</li><li class="rounded-full bg-white/10 px-2.5 py-1">FKT</li></ul>
-          </article>
-          <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
-            <div class="flex items-center gap-4">
               <div class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-sand font-serif text-lg font-semibold text-sage-900">LB</div>
               <div><h3 class="font-semibold">Lic. Lourdes Benitez</h3><p class="text-sm text-sage-300">Especialista en RPG · Kinesiología (FKT)</p></div>
             </div>
             <p class="mt-4 flex-1 text-sm text-sage-100/70">Mejora de la postura, alivio del dolor, flexibilidad y movilidad, con una mirada de bienestar integral.</p>
             <ul class="mt-4 flex flex-wrap gap-1.5 text-xs"><li class="rounded-full bg-white/10 px-2.5 py-1">RPG</li><li class="rounded-full bg-white/10 px-2.5 py-1">Kinesiología</li><li class="rounded-full bg-white/10 px-2.5 py-1">FKT</li></ul>
+          </article>
+          <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
+            <div class="flex items-center gap-4">
+              <div class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-sage-300 font-serif text-lg font-semibold text-sage-900">IB</div>
+              <div><h3 class="font-semibold">Lic. Iñaki Baviello</h3><p class="text-sm text-sage-300">Kinesiología (FKT)</p></div>
+            </div>
+            <p class="mt-4 flex-1 text-sm text-sage-100/70">Evaluación, rehabilitación y fortalecimiento. Prevención y tratamiento de lesiones.</p>
+            <ul class="mt-4 flex flex-wrap gap-1.5 text-xs"><li class="rounded-full bg-white/10 px-2.5 py-1">Kinesiología</li><li class="rounded-full bg-white/10 px-2.5 py-1">FKT</li></ul>
           </article>
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
@@ -316,15 +322,6 @@
             </div>
             <p class="mt-4 flex-1 text-sm text-sage-100/70">Evaluación de capacidades cognitivas, memoria y atención. Estrategias para organizarte en tu día a día y estimular tus funciones cerebrales.</p>
             <ul class="mt-4 flex flex-wrap gap-1.5 text-xs"><li class="rounded-full bg-white/10 px-2.5 py-1">Neurocognición</li><li class="rounded-full bg-white/10 px-2.5 py-1">Terapia ocupacional</li><li class="rounded-full bg-white/10 px-2.5 py-1">Bienestar</li></ul>
-          </article>
-          <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
-            <div class="flex items-center gap-4">
-              <div class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-sand font-serif text-lg font-semibold text-sage-900">SS</div>
-              <div><h3 class="font-semibold">Sheila Lisette Stebner</h3><p class="text-sm text-sage-300">Psicopedagoga</p></div>
-            </div>
-            <p class="mt-4 flex-1 text-sm text-sage-100/70">Evaluación, diagnóstico y tratamiento psicopedagógico. Atiende a niños y adolescentes.</p>
-            <ul class="mt-4 flex flex-wrap gap-1.5 text-xs"><li class="rounded-full bg-white/10 px-2.5 py-1">Psicopedagogía</li><li class="rounded-full bg-white/10 px-2.5 py-1">Niños y adolescentes</li></ul>
-            <a href="https://wa.me/5492236838425" target="_blank" rel="noopener" class="mt-4 text-sm font-semibold text-sage-200 hover:text-white">WhatsApp directo: 223 683-8425 →</a>
           </article>
         </div>
       </div>
@@ -412,11 +409,8 @@
   <footer class="border-t border-sage-200 bg-sand/60">
     <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
       <div>
-        <a href="#inicio" class="flex items-center gap-2.5">
-          <span class="grid h-10 w-10 place-items-center rounded-full bg-sage-600 text-white">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-          </span>
-          <span class="font-serif text-lg font-semibold text-sage-900">B12 Salud Integral</span>
+        <a href="#inicio" class="inline-flex rounded-2xl bg-brand-olive px-7 pb-4 pt-2" aria-label="B12 Salud Integral, ir al inicio">
+          <span class="b12-logo" style="--logo-size: 5rem" aria-hidden="true"><span class="b12-mark">B12</span><span class="b12-sub">SALUD INTEGRAL</span></span>
         </a>
         <p class="mt-4 text-sm text-sage-800/75">Centro de salud multidisciplinario. Acompañamos tu bienestar con un enfoque integral y humano.</p>
         <div class="mt-5 flex gap-2">
@@ -492,10 +486,6 @@
         icon: '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>' },
       { id: 'terapia-ocupacional', nombre: 'Terapia Ocupacional', cat: 'desarrollo', desc: 'Terapia y evaluación cognitiva (memoria, atención), tratamiento de la motricidad fina y estrategias para ganar autonomía en el día a día.',
         icon: '<path d="M19.44 7.85c-.28-.28-.74-.28-1.02 0l-6.29 6.29-2.83-2.83 6.29-6.29c.28-.28.28-.74 0-1.02a3.6 3.6 0 0 0-5.09 0L3.63 10.87a3.6 3.6 0 0 0 0 5.09l4.41 4.41a3.6 3.6 0 0 0 5.09 0l6.87-6.87a3.6 3.6 0 0 0 0-5.09z"/>' },
-      { id: 'psicopedagogia', nombre: 'Psicopedagogía', cat: 'desarrollo', desc: 'Evaluación, diagnóstico y tratamiento de las dificultades de aprendizaje en niños y adolescentes.',
-        icon: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>' },
-      { id: 'nutricion', nombre: 'Nutrición', cat: 'desarrollo', desc: 'Planes alimentarios personalizados para cada etapa de la vida, objetivos deportivos o condiciones de salud específicas.',
-        icon: '<path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/>' }
     ];
 
     // Enlace de WhatsApp con el mensaje de turno ya escrito
@@ -601,6 +591,53 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ===== Carrusel de fotos =====
+    const carousel = document.getElementById('carousel');
+    const track = document.getElementById('carousel-track');
+    const slides = [...track.querySelectorAll('.carousel-slide')];
+    const dotsBox = document.getElementById('carousel-dots');
+    let slideIndex = 0;
+
+    dotsBox.innerHTML = slides.map((s, i) =>
+      `<button type="button" class="carousel-dot h-2 rounded-full transition-all" aria-label="Ver foto ${i + 1}: ${s.querySelector('figcaption').textContent}"></button>`).join('');
+    const dots = [...dotsBox.children];
+
+    const goTo = (i) => {
+      slideIndex = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${slideIndex * 100}%)`;
+      document.getElementById('carousel-caption').textContent = slides[slideIndex].querySelector('figcaption').textContent;
+      document.getElementById('carousel-count').textContent = `${slideIndex + 1} / ${slides.length}`;
+      slides.forEach((s, j) => s.setAttribute('aria-hidden', String(j !== slideIndex)));
+      dots.forEach((d, j) => {
+        const on = j === slideIndex;
+        d.classList.toggle('w-6', on);
+        d.classList.toggle('bg-sage-600', on);
+        d.classList.toggle('w-2', !on);
+        d.classList.toggle('bg-sage-200', !on);
+        d.setAttribute('aria-current', String(on));
+      });
+    };
+
+    document.getElementById('carousel-prev').addEventListener('click', () => goTo(slideIndex - 1));
+    document.getElementById('carousel-next').addEventListener('click', () => goTo(slideIndex + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+    carousel.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') goTo(slideIndex - 1);
+      if (e.key === 'ArrowRight') goTo(slideIndex + 1);
+    });
+
+    // Deslizar con el dedo en celulares
+    let touchX = null;
+    track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) goTo(slideIndex + (dx < 0 ? 1 : -1));
+      touchX = null;
+    });
+
+    goTo(0);
 
   </script>
 </body>

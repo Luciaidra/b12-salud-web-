@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B12 Salud Integral | Centro de salud multidisciplinario</title>
-  <meta name="description" content="Centro de salud integral multidisciplinario: Kinesiología, FKT, RPG, Osteopatía, ATM, y Terapia Ocupacional. Reservá tu turno." />
+  <meta name="description" content="Centro de salud integral multidisciplinario: Kinesiología, FKT, RPG, Osteopatía, ATM, Terapia Ocupacional y Nutrición. Reservá tu turno." />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%238f9677%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Georgia,serif%27 font-size=%2730%27 text-anchor=%27middle%27 fill=%27%23f3f0e6%27%3EB12%3C/text%3E%3C/svg%3E" />
 
@@ -130,7 +130,7 @@
             Cuidamos tu salud <em class="font-normal italic text-sage-600">de manera integral</em>
           </h1>
           <p class="mt-6 max-w-xl text-lg leading-relaxed text-sage-800/80">
-            Un equipo de profesionales que trabaja en conjunto para acompañarte en cada etapa: rehabilitación, postura, movimiento y bienestar, con una mirada humana y personalizada.
+            Un equipo de profesionales que trabaja en conjunto para acompañarte en cada etapa: rehabilitación, postura, movimiento, nutrición y bienestar, con una mirada humana y personalizada.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="#contacto" class="inline-flex items-center justify-center gap-2 rounded-full bg-sage-600 px-7 py-3.5 font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-sage-700">
@@ -143,8 +143,8 @@
           </div>
 
           <dl class="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-sage-200 pt-8">
-            <div><dt class="text-xs text-sage-700/80">Especialidades</dt><dd class="font-serif text-3xl font-semibold text-sage-900">6</dd></div>
-            <div><dt class="text-xs text-sage-700/80">Profesionales</dt><dd class="font-serif text-3xl font-semibold text-sage-900">5</dd></div>
+            <div><dt class="text-xs text-sage-700/80">Especialidades</dt><dd class="font-serif text-3xl font-semibold text-sage-900">7</dd></div>
+            <div><dt class="text-xs text-sage-700/80">Profesionales</dt><dd class="font-serif text-3xl font-semibold text-sage-900">6</dd></div>
             <div><dt class="text-xs text-sage-700/80">Enfoque</dt><dd class="font-serif text-3xl font-semibold text-sage-900">360°</dd></div>
           </dl>
         </div>
@@ -175,7 +175,7 @@
         <div class="reveal mx-auto max-w-2xl text-center">
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">Especialidades</p>
           <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">Todo lo que necesitás, en un mismo lugar</h2>
-          <p class="mt-4 text-sage-800/75">Seis disciplinas que se complementan para abordar cada caso desde distintas miradas.</p>
+          <p class="mt-4 text-sage-800/75">Siete disciplinas que se complementan para abordar cada caso desde distintas miradas.</p>
         </div>
 
         <!-- Filtros -->
@@ -183,7 +183,7 @@
           <button type="button" class="filter-btn rounded-full border px-5 py-2 text-sm font-medium transition" data-filter="all" aria-pressed="true">Todas</button>
           <button type="button" class="filter-btn rounded-full border px-5 py-2 text-sm font-medium transition" data-filter="rehab" aria-pressed="false">Rehabilitación</button>
           <button type="button" class="filter-btn rounded-full border px-5 py-2 text-sm font-medium transition" data-filter="manual" aria-pressed="false">Terapias manuales</button>
-          <button type="button" class="filter-btn rounded-full border px-5 py-2 text-sm font-medium transition" data-filter="desarrollo" aria-pressed="false">Terapia ocupacional</button>
+          <button type="button" class="filter-btn rounded-full border px-5 py-2 text-sm font-medium transition" data-filter="desarrollo" aria-pressed="false">Bienestar y nutrición</button>
         </div>
 
         <!-- Grid de tarjetas (se completa con JavaScript desde el array "especialidades") -->
@@ -272,7 +272,7 @@
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-300">Profesionales</p>
             <h2 class="mt-3 font-serif text-3xl font-semibold sm:text-4xl">Un equipo que trabaja junto a vos</h2>
             <p class="mt-4 text-sage-100/80">
-              Kinesiólogos, osteópatas y terapeuta ocupacional comparten un mismo espacio y se comunican entre sí, para que cada tratamiento se piense en equipo.
+              Kinesiólogos, osteópatas, terapeuta ocupacional y nutricionista comparten un mismo espacio y se comunican entre sí, para que cada tratamiento se piense en equipo.
             </p>
           </div>
           <a href="#contacto" class="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-white px-6 py-3 text-sm font-semibold text-sage-900 transition hover:bg-sage-100 lg:self-auto">
@@ -281,11 +281,13 @@
           </a>
         </div>
 
-        <!-- Tarjetas del equipo (datos de las placas de cada profesional) -->
+        <!-- Tarjetas del equipo. Fotos en img/equipo/; "object-position" ajusta el encuadre de cada foto dentro del círculo -->
         <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
-              <div class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-sand font-serif text-lg font-semibold text-sage-900">LB</div>
+              <div class="h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
+                <img src="img/equipo/lourdes-benitez.webp" alt="Lic. Lourdes Benitez" width="1086" height="1448" loading="lazy" class="h-full w-full object-cover" style="object-position: 50% 66%" />
+              </div>
               <div><h3 class="font-semibold">Lic. Lourdes Benitez</h3><p class="text-sm text-sage-300">Especialista en RPG · Kinesiología (FKT)</p></div>
             </div>
             <p class="mt-4 flex-1 text-sm text-sage-100/70">Mejora de la postura, alivio del dolor, flexibilidad y movilidad, con una mirada de bienestar integral.</p>
@@ -293,7 +295,9 @@
           </article>
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
-              <div class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-sage-300 font-serif text-lg font-semibold text-sage-900">IB</div>
+              <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
+                <img src="img/equipo/inaki-baviello.webp" alt="Lic. Iñaki Baviello" width="960" height="1280" loading="lazy" class="absolute" style="width: 128%; max-width: none; height: auto; left: -14.9%; top: -22.9%" />
+              </div>
               <div><h3 class="font-semibold">Lic. Iñaki Baviello</h3><p class="text-sm text-sage-300">Kinesiología (FKT)</p></div>
             </div>
             <p class="mt-4 flex-1 text-sm text-sage-100/70">Evaluación, rehabilitación y fortalecimiento. Prevención y tratamiento de lesiones.</p>
@@ -301,7 +305,9 @@
           </article>
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
-              <div class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-sage-200 font-serif text-lg font-semibold text-sage-900">PR</div>
+              <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
+                <img src="img/equipo/paula-riveros.webp" alt="Lic. Paula Riveros Safenreider" width="1206" height="1085" loading="lazy" class="absolute" style="width: 237.9%; max-width: none; height: auto; left: -64.3%; top: -27.4%" />
+              </div>
               <div><h3 class="font-semibold">Lic. Paula Riveros Safenreider</h3><p class="text-sm text-sage-300">Especialista en Osteopatía</p></div>
             </div>
             <p class="mt-4 flex-1 text-sm text-sage-100/70">Abordaje integral del paciente, tratamiento del dolor crónico y agudo, y disfunciones temporomandibulares (ATM).</p>
@@ -309,7 +315,9 @@
           </article>
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
-              <div class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-sage-400 font-serif text-lg font-semibold text-white">VP</div>
+              <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
+                <img src="img/equipo/virginia-perez.webp" alt="Virginia Pérez" width="1280" height="940" loading="lazy" class="absolute" style="width: 143.8%; max-width: none; height: auto; left: -29.2%; top: -2.7%" />
+              </div>
               <div><h3 class="font-semibold">Virginia Pérez</h3><p class="text-sm text-sage-300">Osteopatía y Terapia Manual</p></div>
             </div>
             <p class="mt-4 flex-1 text-sm text-sage-100/70">Niños y adultos. Una mirada integral y respetuosa del cuerpo, para acompañarte en cada etapa de la vida.</p>
@@ -317,12 +325,70 @@
           </article>
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
-              <div class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-sage-300 font-serif text-lg font-semibold text-sage-900">BG</div>
+              <div class="grid h-24 w-24 shrink-0 place-items-center overflow-hidden rounded-full ring-2 ring-white/20 bg-sage-300 font-serif text-2xl font-semibold text-sage-900">BG</div>
               <div><h3 class="font-semibold">Lic. M. Belén González</h3><p class="text-sm text-sage-300">Salud Cerebral Integral · Terapia Ocupacional</p></div>
             </div>
             <p class="mt-4 flex-1 text-sm text-sage-100/70">Evaluación de capacidades cognitivas, memoria y atención. Estrategias para organizarte en tu día a día y estimular tus funciones cerebrales.</p>
             <ul class="mt-4 flex flex-wrap gap-1.5 text-xs"><li class="rounded-full bg-white/10 px-2.5 py-1">Neurocognición</li><li class="rounded-full bg-white/10 px-2.5 py-1">Terapia ocupacional</li><li class="rounded-full bg-white/10 px-2.5 py-1">Bienestar</li></ul>
           </article>
+          <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
+            <div class="flex items-center gap-4">
+              <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
+                <img src="img/equipo/marina-boero.jpg" alt="Lic. Marina Boero" width="738" height="1600" loading="lazy" class="absolute" style="width: 238.1%; max-width: none; height: auto; left: -114.5%; top: -177.1%" />
+              </div>
+              <div><h3 class="font-semibold">Lic. Marina Boero</h3><p class="text-sm text-sage-300">Licenciada en Nutrición</p></div>
+            </div>
+            <p class="mt-4 flex-1 text-sm text-sage-100/70">Diplomada en Gerontología, especialista en mujeres en perimenopausia y antropometrista ISAK I.</p>
+            <ul class="mt-4 flex flex-wrap gap-1.5 text-xs"><li class="rounded-full bg-white/10 px-2.5 py-1">Nutrición</li><li class="rounded-full bg-white/10 px-2.5 py-1">Gerontología</li><li class="rounded-full bg-white/10 px-2.5 py-1">Perimenopausia</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== OBRAS SOCIALES ===================== -->
+    <section id="obras-sociales" class="bg-white py-20 lg:py-24">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">Coberturas</p>
+          <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">Obras sociales y prepagas</h2>
+          <p class="mt-4 text-sage-800/75">Trabajamos con más de 50 coberturas. Desplegá la lista para ver si está la tuya.</p>
+        </div>
+
+        <div class="reveal mt-10 overflow-hidden rounded-3xl border border-sage-200 bg-cream">
+          <!-- Botón que despliega la lista -->
+          <button type="button" id="os-toggle" class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-sage-50 sm:px-8" aria-expanded="false" aria-controls="os-panel">
+            <span class="flex items-center gap-4">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-sage-100 text-sage-700">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+              <span>
+                <span class="block font-semibold text-sage-900">Ver obras sociales y prepagas</span>
+                <span id="os-total" class="block text-sm text-sage-700/75"></span>
+              </span>
+            </span>
+            <svg id="os-chevron" class="h-5 w-5 shrink-0 text-sage-700 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+
+          <!-- Lista desplegable -->
+          <div id="os-panel" class="hidden border-t border-sage-200 px-6 pb-8 pt-6 sm:px-8">
+            <label for="os-search" class="sr-only">Buscar tu obra social</label>
+            <div class="relative">
+              <svg class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-sage-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              <input id="os-search" type="search" placeholder="Buscá tu obra social o prepaga (ej: Swiss, Galeno, OSDOP)" autocomplete="off"
+                     class="w-full rounded-full border border-sage-200 bg-white py-3 pl-11 pr-4 text-sm outline-none transition focus:border-sage-500 focus:ring-2 focus:ring-sage-200" />
+            </div>
+
+            <!-- Grupos generados con JavaScript desde el array "obrasSociales" -->
+            <div id="os-groups" class="mt-6 space-y-7"></div>
+
+            <div id="os-empty" class="hidden rounded-2xl bg-white p-6 text-center text-sm text-sage-800/80">
+              No encontramos esa cobertura en la lista. Escribinos por WhatsApp y te confirmamos si podemos atenderte con ella.
+            </div>
+
+            <p class="mt-8 text-xs text-sage-700/70">
+              La cobertura puede variar según el plan y la especialidad. Consultanos por WhatsApp antes de tu turno para confirmar requisitos (orden médica, autorización o copago).
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -333,7 +399,7 @@
         <div class="reveal mx-auto max-w-2xl text-center">
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">Turnos y Contacto</p>
           <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">Reservá tu turno</h2>
-          <p class="mt-4 text-sage-800/75">Escribinos por WhatsApp y coordinamos día y horario. Contamos con cobertura de obras sociales.</p>
+          <p class="mt-4 text-sage-800/75">Escribinos por WhatsApp y coordinamos día y horario. <a href="#obras-sociales" class="font-medium text-sage-600 underline underline-offset-2 hover:text-sage-800">Trabajamos con obras sociales y prepagas</a>.</p>
         </div>
 
         <div class="mt-14 grid gap-8 lg:grid-cols-5">
@@ -403,6 +469,46 @@
         </div>
       </div>
     </section>
+    <!-- ===================== ALQUILER DE CONSULTORIOS ===================== -->
+    <section id="alquiler" class="bg-sand/60 py-20 lg:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal grid items-center gap-10 overflow-hidden rounded-[2rem] bg-white shadow-soft lg:grid-cols-2 lg:gap-0">
+          <!-- Dos fotos de consultorios disponibles -->
+          <div class="relative grid h-full grid-cols-2 gap-1.5 bg-white">
+            <img src="img/alquiler-consultorio-1.webp" alt="Consultorio disponible para alquilar, con escritorio, sillas y estantería" width="1200" height="1600" loading="lazy"
+                 class="aspect-[3/4] h-full w-full object-cover lg:aspect-auto" />
+            <img src="img/alquiler-consultorio-2.webp" alt="Consultorio disponible para alquilar, con escritorio, espejo y banqueta" width="1200" height="1600" loading="lazy"
+                 class="aspect-[3/4] h-full w-full object-cover lg:aspect-auto" />
+            <span class="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-sage-800 shadow-sm">Para profesionales</span>
+          </div>
+
+          <div class="px-6 pb-10 sm:px-10 lg:py-14">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">Alquiler de consultorios</p>
+            <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">¿Sos profesional de la salud? Atendé en B12</h2>
+            <p class="mt-4 leading-relaxed text-sage-800/80">
+              Si buscás un espacio para atender a tus pacientes, en B12 tenemos consultorios disponibles para alquilar, en un entorno cálido y profesional.
+            </p>
+
+            <ul class="mt-6 grid gap-3 text-sm text-sage-900 sm:grid-cols-2">
+              <li class="flex items-start gap-3"><svg class="mt-0.5 h-5 w-5 shrink-0 text-sage-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Consultorios para distintas ramas de la salud</li>
+              <li class="flex items-start gap-3"><svg class="mt-0.5 h-5 w-5 shrink-0 text-sage-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Gimnasio de rehabilitación</li>
+              <li class="flex items-start gap-3"><svg class="mt-0.5 h-5 w-5 shrink-0 text-sage-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Recepción y sala de espera</li>
+              <li class="flex items-start gap-3"><svg class="mt-0.5 h-5 w-5 shrink-0 text-sage-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Espacios climatizados y luminosos</li>
+              <li class="flex items-start gap-3"><svg class="mt-0.5 h-5 w-5 shrink-0 text-sage-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Equipo interdisciplinario para derivaciones</li>
+              <li class="flex items-start gap-3"><svg class="mt-0.5 h-5 w-5 shrink-0 text-sage-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mario Bravo 3356, Mar del Plata</li>
+            </ul>
+
+            <a id="alquiler-wa" href="#" target="_blank" rel="noopener"
+               class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-sage-600 px-7 py-3.5 font-semibold text-white shadow-soft transition hover:bg-sage-700 sm:w-auto">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              Consultar disponibilidad
+            </a>
+            <p class="mt-3 text-xs text-sage-700/70">Escribinos y te contamos horarios disponibles, modalidades y valores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ===================== FOOTER ===================== -->
@@ -434,7 +540,8 @@
           <li><a href="#nosotros" class="hover:text-sage-600">El Centro</a></li>
           <li><a href="#profesionales" class="hover:text-sage-600">Profesionales</a></li>
           <li><a href="#contacto" class="hover:text-sage-600">Turnos y Contacto</a></li>
-          <li><a href="#" class="hover:text-sage-600">Obras sociales y prepagas</a></li>
+          <li><a href="#obras-sociales" class="hover:text-sage-600">Obras sociales y prepagas</a></li>
+          <li><a href="#alquiler" class="hover:text-sage-600">Alquiler de consultorios</a></li>
         </ul>
       </div>
 
@@ -443,7 +550,7 @@
         <ul class="mt-4 space-y-2 text-sm text-sage-800/75">
           <li>Mario Bravo 3356, Mar del Plata</li>
           <li>223 696-2636</li>
-          <li>Contamos con cobertura de obras sociales</li>
+          <li><a href="#obras-sociales" class="hover:text-sage-600">Trabajamos con obras sociales y prepagas</a></li>
           <li>Lunes a viernes de 8 a 20 h</li>
         </ul>
       </div>
@@ -486,6 +593,8 @@
         icon: '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>' },
       { id: 'terapia-ocupacional', nombre: 'Terapia Ocupacional', cat: 'desarrollo', desc: 'Terapia y evaluación cognitiva (memoria, atención), tratamiento de la motricidad fina y estrategias para ganar autonomía en el día a día.',
         icon: '<path d="M19.44 7.85c-.28-.28-.74-.28-1.02 0l-6.29 6.29-2.83-2.83 6.29-6.29c.28-.28.28-.74 0-1.02a3.6 3.6 0 0 0-5.09 0L3.63 10.87a3.6 3.6 0 0 0 0 5.09l4.41 4.41a3.6 3.6 0 0 0 5.09 0l6.87-6.87a3.6 3.6 0 0 0 0-5.09z"/>' },
+      { id: 'nutricion', nombre: 'Nutrición', cat: 'desarrollo', desc: 'Planes alimentarios personalizados, nutrición en la adultez mayor, acompañamiento en la perimenopausia y evaluación antropométrica.',
+        icon: '<path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/>' },
     ];
 
     // Enlace de WhatsApp con el mensaje de turno ya escrito
@@ -638,6 +747,95 @@
     });
 
     goTo(0);
+
+    // ===== Obras sociales y prepagas =====
+    // Para agregar o quitar una cobertura, editar esta lista. Formato: [nombre, detalle opcional]
+    const obrasSociales = [
+      { grupo: 'Empresas de medicina prepaga', items: [
+        ['AMSTERDAM SALUD', 'Amsterdam Salud S.A.'], ['APRES SA'], ['AVALIAN', 'Ex ACA Salud'], ['CENTRO MÉDICO PUEYRREDÓN'],
+        ['CRISTAL SALUD', 'Red Argentina de Sanatorios'], ['ENSALUD / ENSALUD S/ COPAGO'], ['FEDERADA SALUD', 'Federada Salud S.A.'],
+        ['GALENO', 'Galeno Argentina S.A.'], ['JERÁRQUICOS SALUD', 'Mutual Jerárquicos Salud'], ['LUIS PASTEUR'],
+        ['MEDIFÉ S.A.', 'Medifé Cobertura Médica Nacional'], ['OMINT'], ['PREVENCIÓN SALUD S.A.'], ['SANCOR SALUD', 'Plan Común'],
+        ['SANCOR SALUD', 'Plan 700 / 800'], ['SANTA CLARA SALUD'], ['SCIS S.A.', 'Sistema de Cobertura de Integración'], ['SWISS MEDICAL']
+      ]},
+      { grupo: 'Obras sociales sindicales y de dirección', items: [
+        ['ACTIVA SALUD', 'OSFATLYF y OSSEG Plan Especial'], ['AMFFA', 'Asociación Mutual de Farmacéuticos'],
+        ['APSOT', 'Asociación del Personal Superior de Organismos de Control'], ['DASMI'],
+        ['DASUTEN', 'Dirección de Acción Social de la Universidad Tecnológica Nacional'], ['FUTBOLISTAS', 'Obra Social de Futbolistas'],
+        ['OPDEA', 'Personal de Dirección de Empresas de Alimentación'], ['OSCAP', 'Capitanes de Buques de Pesca'],
+        ['OSDOP', 'Obra Social de Docentes Particulares'], ['OSEPJANA', 'Personal Jerárquico de Goodyear'],
+        ['OSPEDYC', 'Personal de Entidades Deportivas y Civiles'], ['OSPEP', 'Personal de Panaderías'],
+        ['OSPEPBA', 'Personal de Escribanías'], ['OSPIA', 'Industria de la Alimentación'], ['OSPIF', 'Industriales del Calzado'],
+        ['OSPSA', 'Personal de Sanidad Argentina'], ['OSPTV', 'Personal de Televisión'], ['OSSEG', 'Personal de Seguros y Servicios'],
+        ['PODER JUDICIAL', 'Obra Social del Poder Judicial de la Nación'], ['UNIÓN PERSONAL', 'Plan Medio y Bajo'], ['UNIÓN PERSONAL', 'Plan Alto']
+      ]},
+      { grupo: 'Mutuales, cooperativas y asistencias integrales', items: [
+        ['AMEBPBA', 'Mutualista de Empleados del Banco Provincia de Buenos Aires'], ['ASÍ ASISTENCIA SANITARIA INTEGRAL', 'ASÍ Asistencial'],
+        ['ASOCIACIÓN ECLESIÁSTICA SAN PEDRO', 'Conferencia Episcopal Argentina'], ['COLONIA SUIZA'], ['GLOBAL EMPRESARIA S.A.'],
+        ['MEDICAR WORK'], ['RAS', 'Red Argentina de Salud'], ['W. HOPE / WILLIAM HOPE ENSALUD']
+      ]},
+      { grupo: 'Cajas de previsión y profesionales', items: [
+        ['CASA', 'Caja de Previsión para Abogados de la Provincia de Buenos Aires'], ['COLEGIO DE ESCRIBANOS', 'Caja de Previsión para Escribanos'],
+        ['COMEI', 'Fundación Comei - Caja de Odontólogos de la Provincia de Buenos Aires']
+      ]},
+      { grupo: 'Aseguradoras de riesgos del trabajo (ART)', items: [
+        ['LA HOLANDO ART'], ['LA SEGUNDA ART'], ['OMINT ART / SERENA ART'], ['RECONQUISTA ART S.A.'], ['RURAL MUTUAL ART'],
+        ['SAN FRANCISCO ART'], ['SMG ART', 'Swiss Medical ART']
+      ]}
+    ];
+
+    const osGroups = document.getElementById('os-groups');
+    const osTotal = obrasSociales.reduce((n, g) => n + g.items.length, 0);
+    document.getElementById('os-total').textContent = `${osTotal} coberturas en ${obrasSociales.length} categorías`;
+
+    // Búsqueda sin tildes ni mayúsculas
+    const normalizar = t => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+    osGroups.innerHTML = obrasSociales.map(g => `
+      <div class="os-group">
+        <h3 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-sage-600">
+          ${g.grupo} <span class="os-count rounded-full bg-sage-100 px-2 py-0.5 text-[11px] tracking-normal text-sage-700">${g.items.length}</span>
+        </h3>
+        <ul class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          ${g.items.map(([nombre, detalle]) => `
+            <li class="os-item rounded-xl border border-sage-100 bg-white px-4 py-2.5" data-search="${normalizar(nombre + ' ' + (detalle || ''))}">
+              <span class="block text-sm font-semibold text-sage-900">${nombre}</span>
+              ${detalle ? `<span class="block text-xs text-sage-700/75">${detalle}</span>` : ''}
+            </li>`).join('')}
+        </ul>
+      </div>`).join('');
+
+    // Desplegar / plegar
+    const osToggle = document.getElementById('os-toggle');
+    const osPanel = document.getElementById('os-panel');
+    osToggle.addEventListener('click', () => {
+      const open = osPanel.classList.toggle('hidden') === false;
+      osToggle.setAttribute('aria-expanded', String(open));
+      document.getElementById('os-chevron').classList.toggle('rotate-180', open);
+      if (open && window.matchMedia('(min-width: 640px)').matches) document.getElementById('os-search').focus({ preventScroll: true });
+    });
+
+    // Filtro por texto
+    document.getElementById('os-search').addEventListener('input', e => {
+      const q = normalizar(e.target.value.trim());
+      let visibles = 0;
+      document.querySelectorAll('.os-group').forEach(group => {
+        let enGrupo = 0;
+        group.querySelectorAll('.os-item').forEach(item => {
+          const ok = !q || item.dataset.search.includes(q);
+          item.classList.toggle('hidden', !ok);
+          if (ok) enGrupo++;
+        });
+        group.classList.toggle('hidden', enGrupo === 0);
+        group.querySelector('.os-count').textContent = enGrupo;
+        visibles += enGrupo;
+      });
+      document.getElementById('os-empty').classList.toggle('hidden', visibles > 0);
+    });
+
+    // ===== Alquiler de consultorios: WhatsApp con mensaje para profesionales =====
+    document.getElementById('alquiler-wa').href = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(
+      '¡Hola! Soy profesional de la salud y me interesa alquilar un consultorio en B12. ¿Me pasan información?')}`;
 
   </script>
 </body>

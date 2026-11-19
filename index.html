@@ -13,59 +13,47 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CSS vía CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            sage: {
-              50: '#f4f6f1', 100: '#e6ebdf', 200: '#cdd7c0', 300: '#aebd9b', 400: '#8fa178',
-              500: '#74875d', 600: '#5b6b48', 700: '#48553a', 800: '#3b4531', 900: '#2b3223'
-            },
-            brand: { olive: '#8f9677', dark: '#646b4f', light: '#f3f0e6' },
-            cream: '#faf8f3',
-            sand: '#efe9df',
-            ink: '#2a2d26'
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            serif: ['Fraunces', 'Georgia', 'serif']
-          },
-          boxShadow: {
-            soft: '0 10px 30px -12px rgba(43, 50, 35, 0.18)'
-          }
-        }
-      }
-    };
+  <!-- Estilos compilados con Tailwind (ver tailwind.config.js y tailwind.input.css) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Marca que hay JS (activa las animaciones). Si main.js no carga en 4 s, se desactivan
+       para que el contenido no quede invisible. -->
+  <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.B12_OK)document.documentElement.classList.remove('js')},4000);</script>
+
+  <!-- Vista previa al compartir el link (WhatsApp, Instagram, Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="B12 Salud Integral" />
+  <meta property="og:title" content="B12 Salud Integral | Centro de salud en Mar del Plata" />
+  <meta property="og:description" content="Kinesiología, FKT, RPG, Osteopatía, ATM, Terapia Ocupacional y Nutrición. Pedí tu turno por WhatsApp." />
+  <meta property="og:url" content="https://b12-salud-web.vercel.app/" />
+  <meta property="og:image" content="https://b12-salud-web.vercel.app/img/logo-b12.jpg" />
+  <meta property="og:image:width" content="1050" />
+  <meta property="og:image:height" content="600" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://b12-salud-web.vercel.app/" />
+
+  <!-- Datos del centro para Google (búsquedas locales y Maps) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "B12 Salud Integral",
+    "url": "https://b12-salud-web.vercel.app/",
+    "image": "https://b12-salud-web.vercel.app/img/fachada.jpg",
+    "telephone": "+54 9 223 696-2636",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mario Bravo 3356",
+      "addressLocality": "Mar del Plata",
+      "addressRegion": "Buenos Aires",
+      "addressCountry": "AR"
+    },
+    "openingHours": "Mo-Fr 08:00-20:00",
+    "medicalSpecialty": ["PhysicalTherapy", "Osteopathic", "DietNutrition"],
+    "sameAs": ["https://www.instagram.com/b12.salud"]
+  }
   </script>
-
-  <style>
-    html { scroll-behavior: smooth; }
-    /* Compensa el navbar fijo al navegar por anclas */
-    section[id] { scroll-margin-top: 5rem; }
-
-    /* Animación de aparición al hacer scroll */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.is-visible { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .reveal { opacity: 1; transform: none; transition: none; }
-    }
-
-    /* Logo B12: "B12" grande con "SALUD INTEGRAL" superpuesto, igual que el logo original */
-    .b12-logo { position: relative; display: inline-grid; place-items: center; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; line-height: 1; }
-    .b12-logo .b12-mark { display: block; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; color: #646b4f; letter-spacing: -0.03em; font-size: var(--logo-size, 2.5rem); }
-    .b12-logo .b12-sub { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); color: #f3f0e6; white-space: nowrap;
-                         font-size: calc(var(--logo-size, 2.5rem) * 0.155); letter-spacing: 0.03em; }
-
-    /* Leyendas del carrusel: sólo para lectores de pantalla */
-    .carousel-slide figcaption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-
-    /* Tarjetas filtradas */
-    .spec-card.is-hidden { display: none; }
-  </style>
 </head>
 
 <body class="bg-cream font-sans text-ink antialiased">
@@ -82,10 +70,10 @@
 
       <!-- Enlaces desktop -->
       <ul class="hidden items-center gap-8 text-sm font-medium text-sage-800 lg:flex">
-        <li><a href="#especialidades" class="nav-link transition hover:text-sage-500">Especialidades</a></li>
-        <li><a href="#nosotros" class="nav-link transition hover:text-sage-500">El Centro</a></li>
-        <li><a href="#profesionales" class="nav-link transition hover:text-sage-500">Profesionales</a></li>
-        <li><a href="#contacto" class="nav-link transition hover:text-sage-500">Turnos y Contacto</a></li>
+        <li><a href="#especialidades" class="nav-link transition hover:text-sage-600">Especialidades</a></li>
+        <li><a href="#nosotros" class="nav-link transition hover:text-sage-600">El Centro</a></li>
+        <li><a href="#profesionales" class="nav-link transition hover:text-sage-600">Profesionales</a></li>
+        <li><a href="#contacto" class="nav-link transition hover:text-sage-600">Turnos y Contacto</a></li>
       </ul>
 
       <div class="flex items-center gap-2">
@@ -143,16 +131,16 @@
           </div>
 
           <dl class="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-sage-200 pt-8">
-            <div><dt class="text-xs text-sage-700/80">Especialidades</dt><dd class="font-serif text-3xl font-semibold text-sage-900">7</dd></div>
-            <div><dt class="text-xs text-sage-700/80">Profesionales</dt><dd class="font-serif text-3xl font-semibold text-sage-900">6</dd></div>
-            <div><dt class="text-xs text-sage-700/80">Enfoque</dt><dd class="font-serif text-3xl font-semibold text-sage-900">360°</dd></div>
+            <div><dt class="text-xs text-sage-700">Especialidades</dt><dd class="font-serif text-3xl font-semibold text-sage-900" id="count-especialidades">7</dd></div>
+            <div><dt class="text-xs text-sage-700">Profesionales</dt><dd class="font-serif text-3xl font-semibold text-sage-900" id="count-profesionales">6</dd></div>
+            <div><dt class="text-xs text-sage-700">Enfoque</dt><dd class="font-serif text-3xl font-semibold text-sage-900">360°</dd></div>
           </dl>
         </div>
 
         <!-- Foto de la fachada -->
         <div class="reveal relative mx-auto w-full max-w-lg">
           <div class="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-sage-100 shadow-soft">
-            <img src="img/fachada.jpg" alt="Fachada de B12 Salud Integral en Mario Bravo 3356, Mar del Plata" width="960" height="1280"
+            <img src="img/fachada.webp" alt="Fachada de B12 Salud Integral en Mario Bravo 3356, Mar del Plata" width="960" height="1280"
                  class="h-full w-full object-cover" fetchpriority="high" />
           </div>
           <!-- Tarjeta flotante -->
@@ -162,7 +150,7 @@
             </span>
             <div>
               <p class="text-sm font-semibold text-sage-900">Trabajo interdisciplinario</p>
-              <p class="text-xs text-sage-700/80">Un plan, todo el equipo</p>
+              <p class="text-xs text-sage-700">Un plan, todo el equipo</p>
             </div>
           </div>
         </div>
@@ -173,7 +161,7 @@
     <section id="especialidades" class="bg-white py-20 lg:py-28">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="reveal mx-auto max-w-2xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">Especialidades</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-600">Especialidades</p>
           <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">Todo lo que necesitás, en un mismo lugar</h2>
           <p class="mt-4 text-sage-800/75">Siete disciplinas que se complementan para abordar cada caso desde distintas miradas.</p>
         </div>
@@ -200,14 +188,14 @@
             <div class="relative aspect-square overflow-hidden rounded-3xl bg-sage-100 shadow-soft">
               <!-- Para agregar o cambiar fotos: copiar un bloque <figure> y cambiar src, alt y el texto del figcaption -->
               <div id="carousel-track" class="flex h-full transition-transform duration-500 ease-out">
-                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/recepcion.jpg" alt="Recepción de B12 con estantes iluminados y plantas" width="960" height="1280" class="h-full w-full object-cover" /><figcaption>Recepción</figcaption></figure>
-                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/sala-espera.jpg" alt="Sala de espera con sillones y sillas verdes" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Sala de espera</figcaption></figure>
-                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/consultorio-camilla.jpg" alt="Consultorio de osteopatía con camilla articulada" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Consultorio de Osteopatía</figcaption></figure>
-                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/gimnasio.jpg" alt="Gimnasio de rehabilitación con bicicletas y espaldar" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Gimnasio de rehabilitación</figcaption></figure>
-                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/boxes.jpg" alt="Boxes de tratamiento con cortinas verdes y camillas" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Boxes de tratamiento</figcaption></figure>
-                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/gimnasio-pesas.jpg" alt="Área de fortalecimiento con mancuernas y bicicletas" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Área de fortalecimiento</figcaption></figure>
-                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/espaldar.jpg" alt="Espacio de ejercicio terapéutico con espaldar, pelota y minitramp" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Ejercicio terapéutico</figcaption></figure>
-                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/consultorio-calido.jpg" alt="Consultorio de RPG con luz cálida, camilla y escritorio" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Consultorio de RPG</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/recepcion.webp" alt="Recepción de B12 con estantes iluminados y plantas" width="960" height="1280" class="h-full w-full object-cover" /><figcaption>Recepción</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/sala-espera.webp" alt="Sala de espera con sillones y sillas verdes" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Sala de espera</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/consultorio-camilla.webp" alt="Consultorio de osteopatía con camilla articulada" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Consultorio de Osteopatía</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/gimnasio.webp" alt="Gimnasio de rehabilitación con bicicletas y espaldar" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Gimnasio de rehabilitación</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/boxes.webp" alt="Boxes de tratamiento con cortinas verdes y camillas" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Boxes de tratamiento</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/gimnasio-pesas.webp" alt="Área de fortalecimiento con mancuernas y bicicletas" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Área de fortalecimiento</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/espaldar.webp" alt="Espacio de ejercicio terapéutico con espaldar, pelota y minitramp" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Ejercicio terapéutico</figcaption></figure>
+                <figure class="carousel-slide relative h-full w-full shrink-0"><img src="img/consultorio-calido.webp" alt="Consultorio de RPG con luz cálida, camilla y escritorio" width="960" height="1280" loading="lazy" class="h-full w-full object-cover" /><figcaption>Consultorio de RPG</figcaption></figure>
               </div>
 
               <!-- Leyenda y contador -->
@@ -231,7 +219,7 @@
         </div>
 
         <div class="reveal order-1 lg:order-2">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">El Centro</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-600">El Centro</p>
           <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">Una mirada integral y profundamente humana</h2>
           <p class="mt-5 leading-relaxed text-sage-800/80">
             En B12 entendemos la salud como un todo. Cada persona llega con una historia, un cuerpo y unos objetivos propios, por eso diseñamos tratamientos a medida y los revisamos en equipo.
@@ -281,12 +269,12 @@
           </a>
         </div>
 
-        <!-- Tarjetas del equipo. Fotos en img/equipo/; "object-position" ajusta el encuadre de cada foto dentro del círculo -->
+        <!-- Tarjetas del equipo. Fotos en img/equipo/ ya recortadas en cuadrado de 192 px (nombre-192.webp) -->
         <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
               <div class="h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
-                <img src="img/equipo/lourdes-benitez.webp" alt="Lic. Lourdes Benitez" width="1086" height="1448" loading="lazy" class="h-full w-full object-cover" style="object-position: 50% 66%" />
+                <img src="img/equipo/lourdes-benitez-192.webp" alt="Lic. Lourdes Benitez" width="192" height="192" loading="lazy" class="h-full w-full object-cover" />
               </div>
               <div><h3 class="font-semibold">Lic. Lourdes Benitez</h3><p class="text-sm text-sage-300">Especialista en RPG · Kinesiología (FKT)</p></div>
             </div>
@@ -295,8 +283,8 @@
           </article>
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
-              <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
-                <img src="img/equipo/inaki-baviello.webp" alt="Lic. Iñaki Baviello" width="960" height="1280" loading="lazy" class="absolute" style="width: 128%; max-width: none; height: auto; left: -14.9%; top: -22.9%" />
+              <div class="h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
+                <img src="img/equipo/inaki-baviello-192.webp" alt="Lic. Iñaki Baviello" width="192" height="192" loading="lazy" class="h-full w-full object-cover" />
               </div>
               <div><h3 class="font-semibold">Lic. Iñaki Baviello</h3><p class="text-sm text-sage-300">Kinesiología (FKT)</p></div>
             </div>
@@ -305,8 +293,8 @@
           </article>
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
-              <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
-                <img src="img/equipo/paula-riveros.webp" alt="Lic. Paula Riveros Safenreider" width="1206" height="1085" loading="lazy" class="absolute" style="width: 237.9%; max-width: none; height: auto; left: -64.3%; top: -27.4%" />
+              <div class="h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
+                <img src="img/equipo/paula-riveros-192.webp" alt="Lic. Paula Riveros Safenreider" width="192" height="192" loading="lazy" class="h-full w-full object-cover" />
               </div>
               <div><h3 class="font-semibold">Lic. Paula Riveros Safenreider</h3><p class="text-sm text-sage-300">Especialista en Osteopatía</p></div>
             </div>
@@ -315,8 +303,8 @@
           </article>
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
-              <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
-                <img src="img/equipo/virginia-perez.webp" alt="Virginia Pérez" width="1280" height="940" loading="lazy" class="absolute" style="width: 143.8%; max-width: none; height: auto; left: -29.2%; top: -2.7%" />
+              <div class="h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
+                <img src="img/equipo/virginia-perez-192.webp" alt="Virginia Pérez" width="192" height="192" loading="lazy" class="h-full w-full object-cover" />
               </div>
               <div><h3 class="font-semibold">Virginia Pérez</h3><p class="text-sm text-sage-300">Osteopatía y Terapia Manual</p></div>
             </div>
@@ -333,8 +321,8 @@
           </article>
           <article class="reveal flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
             <div class="flex items-center gap-4">
-              <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
-                <img src="img/equipo/marina-boero.jpg" alt="Lic. Marina Boero" width="738" height="1600" loading="lazy" class="absolute" style="width: 238.1%; max-width: none; height: auto; left: -114.5%; top: -177.1%" />
+              <div class="h-24 w-24 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-white/20">
+                <img src="img/equipo/marina-boero-192.webp" alt="Lic. Marina Boero" width="192" height="192" loading="lazy" class="h-full w-full object-cover" />
               </div>
               <div><h3 class="font-semibold">Lic. Marina Boero</h3><p class="text-sm text-sage-300">Licenciada en Nutrición</p></div>
             </div>
@@ -349,7 +337,7 @@
     <section id="obras-sociales" class="bg-white py-20 lg:py-24">
       <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div class="reveal mx-auto max-w-2xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">Coberturas</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-600">Coberturas</p>
           <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">Obras sociales y prepagas</h2>
           <p class="mt-4 text-sage-800/75">Trabajamos con más de 50 coberturas. Desplegá la lista para ver si está la tuya.</p>
         </div>
@@ -363,7 +351,7 @@
               </span>
               <span>
                 <span class="block font-semibold text-sage-900">Ver obras sociales y prepagas</span>
-                <span id="os-total" class="block text-sm text-sage-700/75"></span>
+                <span id="os-total" class="block text-sm text-sage-700"></span>
               </span>
             </span>
             <svg id="os-chevron" class="h-5 w-5 shrink-0 text-sage-700 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
@@ -385,7 +373,7 @@
               No encontramos esa cobertura en la lista. Escribinos por WhatsApp y te confirmamos si podemos atenderte con ella.
             </div>
 
-            <p class="mt-8 text-xs text-sage-700/70">
+            <p class="mt-8 text-xs text-sage-700">
               La cobertura puede variar según el plan y la especialidad. Consultanos por WhatsApp antes de tu turno para confirmar requisitos (orden médica, autorización o copago).
             </p>
           </div>
@@ -397,7 +385,7 @@
     <section id="contacto" class="py-20 lg:py-28">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="reveal mx-auto max-w-2xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">Turnos y Contacto</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-600">Turnos y Contacto</p>
           <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">Reservá tu turno</h2>
           <p class="mt-4 text-sage-800/75">Escribinos por WhatsApp y coordinamos día y horario. <a href="#obras-sociales" class="font-medium text-sage-600 underline underline-offset-2 hover:text-sage-800">Trabajamos con obras sociales y prepagas</a>.</p>
         </div>
@@ -421,8 +409,8 @@
               </span>
               <div>
                 <h3 class="font-semibold text-sage-900">WhatsApp</h3>
-                <p class="text-sm text-sage-800/75">223 696-2636</p>
-                <a href="https://wa.me/5492236962636" target="_blank" rel="noopener" class="mt-2 inline-block text-sm font-semibold text-sage-600 hover:text-sage-800">Escribinos →</a>
+                <p class="text-sm text-sage-800/75" data-wa-texto>223 696-2636</p>
+                <a data-wa href="https://wa.me/5492236962636" target="_blank" rel="noopener" class="mt-2 inline-block text-sm font-semibold text-sage-600 hover:text-sage-800">Escribinos →</a>
               </div>
             </div>
             <div class="flex gap-4 rounded-3xl bg-white p-6 shadow-soft">
@@ -457,12 +445,12 @@
               <div id="wa-specs" class="mt-3 flex flex-wrap gap-2"></div>
 
               <div class="mt-8 border-t border-sage-100 pt-8">
-                <a id="wa-general" href="https://wa.me/5492236962636" target="_blank" rel="noopener"
-                   class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 font-semibold text-white shadow-soft transition hover:bg-[#1fb857] sm:w-auto">
+                <a id="wa-general" data-wa href="https://wa.me/5492236962636" target="_blank" rel="noopener"
+                   class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 font-semibold text-ink shadow-soft transition hover:bg-[#1fb857] sm:w-auto">
                   <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-                  Escribinos al 223 696-2636
+                  <span>Escribinos al <span data-wa-texto>223 696-2636</span></span>
                 </a>
-                <p class="mt-3 text-xs text-sage-700/70">¿No sabés qué especialidad necesitás? Escribinos igual y te orientamos.</p>
+                <p class="mt-3 text-xs text-sage-700">¿No sabés qué especialidad necesitás? Escribinos igual y te orientamos.</p>
               </div>
             </div>
           </div>
@@ -483,7 +471,7 @@
           </div>
 
           <div class="px-6 pb-10 sm:px-10 lg:py-14">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-500">Alquiler de consultorios</p>
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sage-600">Alquiler de consultorios</p>
             <h2 class="mt-3 font-serif text-3xl font-semibold text-sage-900 sm:text-4xl">¿Sos profesional de la salud? Atendé en B12</h2>
             <p class="mt-4 leading-relaxed text-sage-800/80">
               Si buscás un espacio para atender a tus pacientes, en B12 tenemos consultorios disponibles para alquilar, en un entorno cálido y profesional.
@@ -503,7 +491,7 @@
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
               Consultar disponibilidad
             </a>
-            <p class="mt-3 text-xs text-sage-700/70">Escribinos y te contamos horarios disponibles, modalidades y valores.</p>
+            <p class="mt-3 text-xs text-sage-700">Escribinos y te contamos horarios disponibles, modalidades y valores.</p>
           </div>
         </div>
       </div>
@@ -523,7 +511,7 @@
           <a href="https://www.instagram.com/b12.salud" target="_blank" rel="noopener" aria-label="Instagram de B12 Salud" class="grid h-10 w-10 place-items-center rounded-full bg-white text-sage-700 transition hover:bg-sage-600 hover:text-white">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
           </a>
-          <a href="https://wa.me/5492236962636" target="_blank" rel="noopener" aria-label="WhatsApp" class="grid h-10 w-10 place-items-center rounded-full bg-white text-sage-700 transition hover:bg-sage-600 hover:text-white">
+          <a data-wa href="https://wa.me/5492236962636" target="_blank" rel="noopener" aria-label="WhatsApp" class="grid h-10 w-10 place-items-center rounded-full bg-white text-sage-700 transition hover:bg-sage-600 hover:text-white">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
           </a>
         </div>
@@ -549,7 +537,7 @@
         <h4 class="text-sm font-semibold uppercase tracking-wider text-sage-900">Contacto</h4>
         <ul class="mt-4 space-y-2 text-sm text-sage-800/75">
           <li>Mario Bravo 3356, Mar del Plata</li>
-          <li>223 696-2636</li>
+          <li data-wa-texto>223 696-2636</li>
           <li><a href="#obras-sociales" class="hover:text-sage-600">Trabajamos con obras sociales y prepagas</a></li>
           <li>Lunes a viernes de 8 a 20 h</li>
         </ul>
@@ -557,286 +545,19 @@
     </div>
 
     <div class="border-t border-sage-200">
-      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-sage-700/80 sm:flex-row sm:px-6 lg:px-8">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-sage-700 sm:flex-row sm:px-6 lg:px-8">
         <p>© <span id="year"></span> B12 Salud Integral. Todos los derechos reservados.</p>
-        <ul class="flex flex-wrap justify-center gap-x-5 gap-y-1">
-          <li><a href="#" class="hover:text-sage-900">Política de privacidad</a></li>
-          <li><a href="#" class="hover:text-sage-900">Términos y condiciones</a></li>
-          <li><a href="#" class="hover:text-sage-900">Aviso legal</a></li>
-        </ul>
       </div>
-      <p class="px-4 pb-6 text-center text-[11px] text-sage-700/60">La información de este sitio es orientativa y no reemplaza la consulta con un profesional de la salud.</p>
+      <p class="px-4 pb-6 text-center text-[11px] text-sage-700">La información de este sitio es orientativa y no reemplaza la consulta con un profesional de la salud.</p>
     </div>
   </footer>
 
   <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/5492236962636" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"
-     class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:scale-105">
+  <a data-wa href="https://wa.me/5492236962636" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"
+     class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#128C7E] text-white shadow-lg transition hover:scale-105 hover:bg-[#0f7a6e]">
     <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.04 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.87 11.87 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41z"/></svg>
   </a>
 
-  <script>
-    // ===== Configuración rápida =====
-    const WHATSAPP_NUMERO = '5492236962636'; // WhatsApp del consultorio (formato internacional sin "+")
-
-    // ===== Datos de especialidades =====
-    const especialidades = [
-      { id: 'kinesiologia', nombre: 'Kinesiología', cat: 'rehab', desc: 'Rehabilitación, prevención y tratamiento de lesiones: evaluación, recuperación de la movilidad y fortalecimiento.',
-        icon: '<path d="M14.4 14.4 9.6 9.6"/><path d="M18.66 21.51a2 2 0 1 1-2.83-2.83l-1.77 1.77a2 2 0 1 1-2.83-2.83l6.37-6.37a2 2 0 1 1 2.83 2.83l-1.77 1.77a2 2 0 1 1 2.83 2.83z"/><path d="m21.5 21.5-1.4-1.4M3.9 3.9 2.5 2.5"/><path d="M6.4 12.77a2 2 0 1 1-2.83-2.83l1.77-1.77a2 2 0 1 1-2.83-2.83l2.83-2.83a2 2 0 1 1 2.83 2.83l1.77-1.77a2 2 0 1 1 2.83 2.83z"/>' },
-      { id: 'fkt', nombre: 'FKT (Fisiokinesioterapia)', cat: 'rehab', desc: 'Agentes físicos (calor, frío, electroterapia, ultrasonido) combinados con ejercicio terapéutico para aliviar el dolor y acelerar la recuperación.',
-        icon: '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>' },
-      { id: 'rpg', nombre: 'RPG (Reeducación Postural Global)', cat: 'rehab', desc: 'Método que trabaja las cadenas musculares en conjunto para corregir desequilibrios posturales y tratar dolores de origen postural.',
-        icon: '<circle cx="12" cy="4.5" r="2.5"/><path d="M12 7v8M8 10h8M9 21l3-6 3 6"/>' },
-      { id: 'osteopatia', nombre: 'Osteopatía', cat: 'manual', desc: 'Abordaje integral corporal para niños y adultos: alivio de dolores crónicos y agudos, postura, movilidad y equilibrio global.',
-        icon: '<path d="M18 11V6a2 2 0 0 0-4 0v1M14 10V4a2 2 0 0 0-4 0v2M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>' },
-      { id: 'atm', nombre: 'ATM (Disfunción Temporomandibular)', cat: 'manual', desc: 'Abordaje de dolor mandibular, chasquidos, bruxismo y cefaleas asociadas a la articulación temporomandibular.',
-        icon: '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>' },
-      { id: 'terapia-ocupacional', nombre: 'Terapia Ocupacional', cat: 'desarrollo', desc: 'Terapia y evaluación cognitiva (memoria, atención), tratamiento de la motricidad fina y estrategias para ganar autonomía en el día a día.',
-        icon: '<path d="M19.44 7.85c-.28-.28-.74-.28-1.02 0l-6.29 6.29-2.83-2.83 6.29-6.29c.28-.28.28-.74 0-1.02a3.6 3.6 0 0 0-5.09 0L3.63 10.87a3.6 3.6 0 0 0 0 5.09l4.41 4.41a3.6 3.6 0 0 0 5.09 0l6.87-6.87a3.6 3.6 0 0 0 0-5.09z"/>' },
-      { id: 'nutricion', nombre: 'Nutrición', cat: 'desarrollo', desc: 'Planes alimentarios personalizados, nutrición en la adultez mayor, acompañamiento en la perimenopausia y evaluación antropométrica.',
-        icon: '<path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/>' },
-    ];
-
-    // Enlace de WhatsApp con el mensaje de turno ya escrito
-    const waLink = (especialidad) => `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(
-      `¡Hola! Quisiera solicitar un turno de ${especialidad}.`)}`;
-
-    // ===== Render de tarjetas, botones de turno y footer =====
-    const grid = document.getElementById('spec-grid');
-    const footerSpecs = document.getElementById('footer-specs');
-
-    grid.innerHTML = especialidades.map(e => `
-      <article class="spec-card reveal group flex flex-col rounded-3xl border border-sage-100 bg-cream p-6 transition duration-300 hover:-translate-y-1 hover:border-sage-200 hover:bg-white hover:shadow-soft" data-cat="${e.cat}">
-        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-sage-100 text-sage-700 transition group-hover:bg-sage-600 group-hover:text-white">
-          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${e.icon}</svg>
-        </span>
-        <h3 class="mt-5 font-serif text-lg font-semibold leading-snug text-sage-900">${e.nombre}</h3>
-        <p class="mt-2 flex-1 text-sm leading-relaxed text-sage-800/75">${e.desc}</p>
-        <a href="${waLink(e.nombre)}" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-sage-600 hover:text-sage-800">
-          Pedir turno por WhatsApp
-          <svg class="h-4 w-4 transition group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>`).join('');
-
-    // Botones de especialidad en la sección de turnos
-    document.getElementById('wa-specs').innerHTML = especialidades.map(e => `
-      <a href="${waLink(e.nombre)}" target="_blank" rel="noopener"
-         class="rounded-full border border-sage-200 bg-cream px-4 py-2 text-sm font-medium text-sage-800 transition hover:border-sage-600 hover:bg-sage-600 hover:text-white">${e.nombre.split(' (')[0]}</a>`).join('');
-
-    footerSpecs.innerHTML = especialidades
-      .map(e => `<li><a href="#especialidades" class="hover:text-sage-600">${e.nombre.split(' (')[0]}</a></li>`).join('');
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ===== Navbar: fondo al hacer scroll =====
-    const navbar = document.getElementById('navbar');
-    const onScroll = () => {
-      const scrolled = window.scrollY > 20;
-      navbar.classList.toggle('bg-cream/90', scrolled);
-      navbar.classList.toggle('backdrop-blur', scrolled);
-      navbar.classList.toggle('shadow-sm', scrolled);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    // ===== Menú hamburguesa =====
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const setMenu = (open) => {
-      mobileMenu.classList.toggle('hidden', !open);
-      menuToggle.setAttribute('aria-expanded', String(open));
-      menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-      document.getElementById('icon-open').classList.toggle('hidden', open);
-      document.getElementById('icon-close').classList.toggle('hidden', !open);
-      if (open) navbar.classList.add('bg-cream/90', 'backdrop-blur');
-      else onScroll();
-    };
-    menuToggle.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
-    document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => setMenu(false)));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
-    window.addEventListener('resize', () => { if (window.innerWidth >= 1024) setMenu(false); });
-
-    // ===== Filtros de especialidades =====
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const styleFilters = (active) => filterBtns.forEach(btn => {
-      const on = btn.dataset.filter === active;
-      btn.setAttribute('aria-pressed', String(on));
-      btn.classList.toggle('bg-sage-600', on);
-      btn.classList.toggle('border-sage-600', on);
-      btn.classList.toggle('text-white', on);
-      btn.classList.toggle('border-sage-200', !on);
-      btn.classList.toggle('text-sage-800', !on);
-      btn.classList.toggle('hover:border-sage-400', !on);
-    });
-    filterBtns.forEach(btn => btn.addEventListener('click', () => {
-      const f = btn.dataset.filter;
-      styleFilters(f);
-      document.querySelectorAll('.spec-card').forEach(card => {
-        card.classList.toggle('is-hidden', f !== 'all' && card.dataset.cat !== f);
-      });
-    }));
-    styleFilters('all');
-
-    // ===== Resaltado del enlace activo en el navbar =====
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(link => {
-          const active = link.getAttribute('href') === '#' + entry.target.id;
-          link.classList.toggle('text-sage-500', active);
-        });
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    document.querySelectorAll('main section[id]').forEach(s => sectionObserver.observe(s));
-
-    // ===== Animación de aparición =====
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // ===== Carrusel de fotos =====
-    const carousel = document.getElementById('carousel');
-    const track = document.getElementById('carousel-track');
-    const slides = [...track.querySelectorAll('.carousel-slide')];
-    const dotsBox = document.getElementById('carousel-dots');
-    let slideIndex = 0;
-
-    dotsBox.innerHTML = slides.map((s, i) =>
-      `<button type="button" class="carousel-dot h-2 rounded-full transition-all" aria-label="Ver foto ${i + 1}: ${s.querySelector('figcaption').textContent}"></button>`).join('');
-    const dots = [...dotsBox.children];
-
-    const goTo = (i) => {
-      slideIndex = (i + slides.length) % slides.length;
-      track.style.transform = `translateX(-${slideIndex * 100}%)`;
-      document.getElementById('carousel-caption').textContent = slides[slideIndex].querySelector('figcaption').textContent;
-      document.getElementById('carousel-count').textContent = `${slideIndex + 1} / ${slides.length}`;
-      slides.forEach((s, j) => s.setAttribute('aria-hidden', String(j !== slideIndex)));
-      dots.forEach((d, j) => {
-        const on = j === slideIndex;
-        d.classList.toggle('w-6', on);
-        d.classList.toggle('bg-sage-600', on);
-        d.classList.toggle('w-2', !on);
-        d.classList.toggle('bg-sage-200', !on);
-        d.setAttribute('aria-current', String(on));
-      });
-    };
-
-    document.getElementById('carousel-prev').addEventListener('click', () => goTo(slideIndex - 1));
-    document.getElementById('carousel-next').addEventListener('click', () => goTo(slideIndex + 1));
-    dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-    carousel.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft') goTo(slideIndex - 1);
-      if (e.key === 'ArrowRight') goTo(slideIndex + 1);
-    });
-
-    // Deslizar con el dedo en celulares
-    let touchX = null;
-    track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e => {
-      if (touchX === null) return;
-      const dx = e.changedTouches[0].clientX - touchX;
-      if (Math.abs(dx) > 40) goTo(slideIndex + (dx < 0 ? 1 : -1));
-      touchX = null;
-    });
-
-    goTo(0);
-
-    // ===== Obras sociales y prepagas =====
-    // Para agregar o quitar una cobertura, editar esta lista. Formato: [nombre, detalle opcional]
-    const obrasSociales = [
-      { grupo: 'Empresas de medicina prepaga', items: [
-        ['AMSTERDAM SALUD', 'Amsterdam Salud S.A.'], ['APRES SA'], ['AVALIAN', 'Ex ACA Salud'], ['CENTRO MÉDICO PUEYRREDÓN'],
-        ['CRISTAL SALUD', 'Red Argentina de Sanatorios'], ['ENSALUD / ENSALUD S/ COPAGO'], ['FEDERADA SALUD', 'Federada Salud S.A.'],
-        ['GALENO', 'Galeno Argentina S.A.'], ['JERÁRQUICOS SALUD', 'Mutual Jerárquicos Salud'], ['LUIS PASTEUR'],
-        ['MEDIFÉ S.A.', 'Medifé Cobertura Médica Nacional'], ['OMINT'], ['PREVENCIÓN SALUD S.A.'], ['SANCOR SALUD', 'Plan Común'],
-        ['SANCOR SALUD', 'Plan 700 / 800'], ['SANTA CLARA SALUD'], ['SCIS S.A.', 'Sistema de Cobertura de Integración'], ['SWISS MEDICAL']
-      ]},
-      { grupo: 'Obras sociales sindicales y de dirección', items: [
-        ['ACTIVA SALUD', 'OSFATLYF y OSSEG Plan Especial'], ['AMFFA', 'Asociación Mutual de Farmacéuticos'],
-        ['APSOT', 'Asociación del Personal Superior de Organismos de Control'], ['DASMI'],
-        ['DASUTEN', 'Dirección de Acción Social de la Universidad Tecnológica Nacional'], ['FUTBOLISTAS', 'Obra Social de Futbolistas'],
-        ['OPDEA', 'Personal de Dirección de Empresas de Alimentación'], ['OSCAP', 'Capitanes de Buques de Pesca'],
-        ['OSDOP', 'Obra Social de Docentes Particulares'], ['OSEPJANA', 'Personal Jerárquico de Goodyear'],
-        ['OSPEDYC', 'Personal de Entidades Deportivas y Civiles'], ['OSPEP', 'Personal de Panaderías'],
-        ['OSPEPBA', 'Personal de Escribanías'], ['OSPIA', 'Industria de la Alimentación'], ['OSPIF', 'Industriales del Calzado'],
-        ['OSPSA', 'Personal de Sanidad Argentina'], ['OSPTV', 'Personal de Televisión'], ['OSSEG', 'Personal de Seguros y Servicios'],
-        ['PODER JUDICIAL', 'Obra Social del Poder Judicial de la Nación'], ['UNIÓN PERSONAL', 'Plan Medio y Bajo'], ['UNIÓN PERSONAL', 'Plan Alto']
-      ]},
-      { grupo: 'Mutuales, cooperativas y asistencias integrales', items: [
-        ['AMEBPBA', 'Mutualista de Empleados del Banco Provincia de Buenos Aires'], ['ASÍ ASISTENCIA SANITARIA INTEGRAL', 'ASÍ Asistencial'],
-        ['ASOCIACIÓN ECLESIÁSTICA SAN PEDRO', 'Conferencia Episcopal Argentina'], ['COLONIA SUIZA'], ['GLOBAL EMPRESARIA S.A.'],
-        ['MEDICAR WORK'], ['RAS', 'Red Argentina de Salud'], ['W. HOPE / WILLIAM HOPE ENSALUD']
-      ]},
-      { grupo: 'Cajas de previsión y profesionales', items: [
-        ['CASA', 'Caja de Previsión para Abogados de la Provincia de Buenos Aires'], ['COLEGIO DE ESCRIBANOS', 'Caja de Previsión para Escribanos'],
-        ['COMEI', 'Fundación Comei - Caja de Odontólogos de la Provincia de Buenos Aires']
-      ]},
-      { grupo: 'Aseguradoras de riesgos del trabajo (ART)', items: [
-        ['LA HOLANDO ART'], ['LA SEGUNDA ART'], ['OMINT ART / SERENA ART'], ['RECONQUISTA ART S.A.'], ['RURAL MUTUAL ART'],
-        ['SAN FRANCISCO ART'], ['SMG ART', 'Swiss Medical ART']
-      ]}
-    ];
-
-    const osGroups = document.getElementById('os-groups');
-    const osTotal = obrasSociales.reduce((n, g) => n + g.items.length, 0);
-    document.getElementById('os-total').textContent = `${osTotal} coberturas en ${obrasSociales.length} categorías`;
-
-    // Búsqueda sin tildes ni mayúsculas
-    const normalizar = t => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-
-    osGroups.innerHTML = obrasSociales.map(g => `
-      <div class="os-group">
-        <h3 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-sage-600">
-          ${g.grupo} <span class="os-count rounded-full bg-sage-100 px-2 py-0.5 text-[11px] tracking-normal text-sage-700">${g.items.length}</span>
-        </h3>
-        <ul class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          ${g.items.map(([nombre, detalle]) => `
-            <li class="os-item rounded-xl border border-sage-100 bg-white px-4 py-2.5" data-search="${normalizar(nombre + ' ' + (detalle || ''))}">
-              <span class="block text-sm font-semibold text-sage-900">${nombre}</span>
-              ${detalle ? `<span class="block text-xs text-sage-700/75">${detalle}</span>` : ''}
-            </li>`).join('')}
-        </ul>
-      </div>`).join('');
-
-    // Desplegar / plegar
-    const osToggle = document.getElementById('os-toggle');
-    const osPanel = document.getElementById('os-panel');
-    osToggle.addEventListener('click', () => {
-      const open = osPanel.classList.toggle('hidden') === false;
-      osToggle.setAttribute('aria-expanded', String(open));
-      document.getElementById('os-chevron').classList.toggle('rotate-180', open);
-      if (open && window.matchMedia('(min-width: 640px)').matches) document.getElementById('os-search').focus({ preventScroll: true });
-    });
-
-    // Filtro por texto
-    document.getElementById('os-search').addEventListener('input', e => {
-      const q = normalizar(e.target.value.trim());
-      let visibles = 0;
-      document.querySelectorAll('.os-group').forEach(group => {
-        let enGrupo = 0;
-        group.querySelectorAll('.os-item').forEach(item => {
-          const ok = !q || item.dataset.search.includes(q);
-          item.classList.toggle('hidden', !ok);
-          if (ok) enGrupo++;
-        });
-        group.classList.toggle('hidden', enGrupo === 0);
-        group.querySelector('.os-count').textContent = enGrupo;
-        visibles += enGrupo;
-      });
-      document.getElementById('os-empty').classList.toggle('hidden', visibles > 0);
-    });
-
-    // ===== Alquiler de consultorios: WhatsApp con mensaje para profesionales =====
-    document.getElementById('alquiler-wa').href = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(
-      '¡Hola! Soy profesional de la salud y me interesa alquilar un consultorio en B12. ¿Me pasan información?')}`;
-
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>

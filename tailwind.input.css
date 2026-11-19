@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Estilos propios del sitio ===== */
+html { scroll-behavior: smooth; }
+/* Compensa el navbar fijo al navegar por anclas */
+section[id] { scroll-margin-top: 5rem; }
+
+/* Animación de aparición al hacer scroll.
+   Sólo se oculta el contenido si hay JS (clase .js en <html>): sin JS, todo se ve. */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Foco visible para quien navega con teclado */
+:where(a, button, input, [tabindex]):focus-visible { outline: 2px solid #48553a; outline-offset: 3px; border-radius: 0.5rem; }
+#profesionales :focus-visible { outline-color: #fff; }
+
+/* Logo B12: "B12" grande con "SALUD INTEGRAL" superpuesto, igual que el logo original */
+.b12-logo { position: relative; display: inline-grid; place-items: center; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; line-height: 1; }
+.b12-logo .b12-mark { display: block; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; color: #646b4f; letter-spacing: -0.03em; font-size: var(--logo-size, 2.5rem); }
+.b12-logo .b12-sub { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); color: #f3f0e6; white-space: nowrap;
+                     font-size: calc(var(--logo-size, 2.5rem) * 0.155); letter-spacing: 0.03em; }
+
+/* Leyendas del carrusel: sólo para lectores de pantalla */
+.carousel-slide figcaption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Tarjetas filtradas */
+.spec-card.is-hidden { display: none; }
